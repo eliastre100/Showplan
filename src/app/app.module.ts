@@ -10,16 +10,20 @@ import { NewPage } from "../pages/new/new";
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { IonicStorageModule } from "@ionic/storage";
+import { ComponentsModule } from "../components/components.module";
+import { ShowPage } from "../pages/show/show";
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
     ListPage,
-    NewPage
+    NewPage,
+    ShowPage
   ],
   imports: [
     BrowserModule,
+    ComponentsModule,
     IonicModule.forRoot(MyApp),
     IonicStorageModule.forRoot()
   ],
@@ -28,7 +32,8 @@ import { IonicStorageModule } from "@ionic/storage";
     MyApp,
     HomePage,
     ListPage,
-    NewPage
+    NewPage,
+    ShowPage
   ],
   providers: [
     StatusBar,
