@@ -30,5 +30,10 @@ export class NewPage {
     console.log(allEvents);
     allEvents.push(this.event);
     this.storage.set('events', allEvents);
+    if (this.navCtrl.canGoBack()) {
+      this.navCtrl.pop();
+    } else {
+      this.navCtrl.goToRoot({});
+    }
   }
 }
