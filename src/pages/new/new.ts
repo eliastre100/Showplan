@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+import { Storage } from "@ionic/storage";
 import { EventType } from '../../constants/types';
 
 @Component({
@@ -14,16 +15,20 @@ export class NewPage {
   };
   errorMsg = "";
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController,
+              public navParams: NavParams,
+              private storage: Storage) {
   }
 
-  addEvent() {
+  async addEvent() {
     this.errorMsg = '';
-    console.log(this.event);
     if (this.event.artist == '' || this.event.venue == '' || this.event.datetime == null) {
       this.errorMsg = 'All fields have to be filled';
       return;
     }
+    let allEvents = await this.storage.get('events') || [];
+    console.log(allEvents);
+    allEvents.push(this.event);
+    this.storage.set('events', allEvents);
   }
-
 }
