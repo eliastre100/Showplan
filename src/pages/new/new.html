@@ -1,0 +1,36 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Add new event</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <div class="danger" *ngIf="errorMsg != ''">
+    <ion-card class="card-error">
+      <ion-card-content>
+        {{ errorMsg }}
+      </ion-card-content>
+    </ion-card>
+  </div>
+
+  <form (ngSubmit)="addEvent()">
+    <ion-item>
+      <ion-label floating>Artist</ion-label>
+      <ion-input type="text" [(ngModel)]="event.artist" name="artist"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Venue</ion-label>
+      <ion-input type="text" [(ngModel)]="event.venue" name="venue"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating >Date</ion-label>
+      <ion-datetime displayFormat="MM/DD/YYYY @ HH:mm" [(ngModel)]="event.datetime" name="datetime"></ion-datetime>
+    </ion-item>
+    <button ion-button type="submit" block>Add Event</button>
+  </form>
+
+</ion-content>
