@@ -1,3 +1,20 @@
-<div>
-  {{ event.artist }} - {{ event.venue }} - {{ event.datetime | date: 'dd/MM/yyyy @ H:mm' }}
-</div>
+<ion-grid>
+  <ion-row>
+    <ion-col col-10>
+      <ion-row>
+      <h1>{{ event.artist }}</h1>
+      </ion-row>
+      <ion-row>
+        {{ event.venue }}
+      </ion-row>
+      <ion-row>
+        {{ event.datetime | date: 'dd/MM/yyyy @ H:mm' }}
+      </ion-row>
+    </ion-col>
+    <ion-col col-2>
+      <button ion-fab color="primary" (click)="playTracklist()">
+        <ion-icon name="play"></ion-icon>
+      </button>
+    </ion-col>
+  </ion-row>
+</ion-grid>

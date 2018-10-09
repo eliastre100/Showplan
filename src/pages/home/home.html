@@ -8,9 +8,7 @@
 </ion-header>
 
 <ion-content padding>
-  <div *ngFor="let event of events">
-    <event-item [event]="event"></event-item>
-  </div>
+  <event-item *ngFor="let event of events" [event]="event"></event-item>
 
   <!-- https://ionicframework.com/docs/api/components/fab/FabButton/
   https://ionicframework.com/docs/api/components/fab/FabContainer/ -->
