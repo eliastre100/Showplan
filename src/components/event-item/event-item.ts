@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { EventType } from "../../constants/types";
-import { AlertController } from "ionic-angular";
+import { AlertController, NavController} from "ionic-angular";
+import { ShowPage } from "../../pages/show/show";
 
 /**
  * Generated class for the EventItemComponent component.
@@ -15,7 +16,12 @@ import { AlertController } from "ionic-angular";
 export class EventItemComponent {
   @Input() event: EventType;
 
-  constructor(private alertCtrl: AlertController) {
+  constructor(private navCtrl: NavController,
+    private alertCtrl: AlertController) {
+  }
+
+  goToEvent() {
+    this.navCtrl.push(ShowPage, { event: this.event })
   }
 
   playTracklist() {
