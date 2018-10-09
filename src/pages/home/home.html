@@ -8,13 +8,9 @@
 </ion-header>
 
 <ion-content padding>
-  <h3>Ionic Menu Starter</h3>
-
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will show you the way.
-  </p>
-
-  <button ion-button secondary menuToggle>Toggle Menu</button>
+  <div *ngFor="let event of events">
+    {{ event.artist }} - {{ event.venue }} - {{ event.datetime | date: 'dd/MM/yyyy @ H:mm' }}
+  </div>
 
   <!-- https://ionicframework.com/docs/api/components/fab/FabButton/
   https://ionicframework.com/docs/api/components/fab/FabContainer/ -->
