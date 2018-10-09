@@ -10,6 +10,7 @@ import { NewPage } from "../pages/new/new";
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { IonicStorageModule } from "@ionic/storage";
+import { ComponentsModule } from "../components/components.module";
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { IonicStorageModule } from "@ionic/storage";
   ],
   imports: [
     BrowserModule,
+    ComponentsModule,
     IonicModule.forRoot(MyApp),
     IonicStorageModule.forRoot()
   ],
