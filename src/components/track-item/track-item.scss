@@ -1,0 +1,18 @@
+track-item {
+  .fab[mini] {
+    width: 27px;
+    height: 27px;
+    line-height: 27px;
+    font-size: 50%;
+    margin: 0;
+    float: right;
+  }
+
+  .fab ion-icon {
+    font-size: 1.5rem;
+  }
+
+  .track-title {
+    white-space:normal;
+  }
+}

@@ -7,12 +7,30 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>show</ion-title>
+    <ion-title>{{ event.artist }}</ion-title>
   </ion-navbar>
 
 </ion-header>
 
+<ion-content no-padding>
 
-<ion-content padding>
+  <ion-grid>
+    <ion-row>
+      <ion-col col-10 class="setlist-title">
+        <h1>Last setlist</h1>
+      </ion-col>
+      <ion-col col-2>
+        <button ion-fab color="primary" litle (click)="playTracklist()">
+          <ion-icon name="play"></ion-icon>
+        </button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-list>
+    <ion-item no-padding *ngFor="let track of tracks">
+      <track-item [track]="track"></track-item>
+    </ion-item>
+  </ion-list>
 
 </ion-content>

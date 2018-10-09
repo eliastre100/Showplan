@@ -10,8 +10,8 @@ import { NewPage } from "../pages/new/new";
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { IonicStorageModule } from "@ionic/storage";
-import { ComponentsModule } from "../components/components.module";
 import { ShowPage } from "../pages/show/show";
+import { ComponentsModule } from "../components/components.module";
 
 @NgModule({
   declarations: [

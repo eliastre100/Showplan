@@ -1,5 +1,10 @@
 export type EventType = {
-  artist: String,
-  venue: String,
+  artist: string,
+  venue: string,
   datetime: Date,
+}
+
+export type TrackType = {
+  artist: string,
+  name: string
 }
