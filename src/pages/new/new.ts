@@ -20,20 +20,36 @@ export class NewPage {
               private storage: Storage) {
   }
 
-  async addEvent() {
+  addEvent() {
     this.errorMsg = '';
-    if (this.event.artist == '' || this.event.venue == '' || this.event.datetime == null) {
+    if (!this.validateEvent(this.event)) { return }
+    this.storeEvent(this.event).then(() => {
+      this.goBack()
+    }).catch(() => {
+      this.errorMsg = 'An error occurred'
+    });
+  }
+
+  // TODO: Make a more precise error detection
+  private validateEvent(event: EventType): boolean {
+    if (event.artist == '' || event.venue == '' || event.datetime == null) {
       this.errorMsg = 'All fields have to be filled';
-      return;
+      return false;
     }
+    return true
+  }
+
+  private async storeEvent(event: EventType): null {
     let allEvents = await this.storage.get('events') || [];
-    console.log(allEvents);
-    allEvents.push(this.event);
-    this.storage.set('events', allEvents);
+    allEvents.push(event);
+    await this.storage.set('events', allEvents);
+  }
+
+  private goBack() {
     if (this.navCtrl.canGoBack()) {
-      this.navCtrl.pop();
+      this.navCtrl.pop().catch(() => this.errorMsg = 'Unable to go back.');
     } else {
-      this.navCtrl.goToRoot({});
+      this.navCtrl.goToRoot({}). catch(() => this.errorMsg = 'Unable to go back to home.');
     }
   }
 }
