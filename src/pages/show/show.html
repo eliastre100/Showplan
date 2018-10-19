@@ -20,7 +20,7 @@
         <h1>Last setlist</h1>
       </ion-col>
       <ion-col col-2>
-        <button ion-fab color="primary" litle (click)="playTracklist()">
+        <button *ngIf="tracks.length != 0" ion-fab color="primary" litle (click)="playTracklist()">
           <ion-icon name="play"></ion-icon>
         </button>
       </ion-col>
@@ -28,6 +28,9 @@
   </ion-grid>
 
   <ion-list>
+    <div *ngIf="tracks.length == 0" class="no-track">
+      <h2>No setlist found</h2>
+    </div>
     <ion-item no-padding *ngFor="let track of tracks">
       <track-item [track]="track"></track-item>
     </ion-item>
