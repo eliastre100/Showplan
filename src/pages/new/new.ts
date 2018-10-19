@@ -39,7 +39,7 @@ export class NewPage {
     return true
   }
 
-  private async storeEvent(event: EventType): null {
+  private async storeEvent(event: any) {
     let allEvents = await this.storage.get('events') || [];
     allEvents.push(event);
     await this.storage.set('events', allEvents);
