@@ -6,11 +6,9 @@
   </ion-header>
 
   <ion-content>
-    <ion-list>
-      <button menuClose ion-item (click)="goHome()">
-        Home
-      </button>
-    </ion-list>
+    <button no-lines menuClose ion-item (click)="goHome()">
+      Home
+    </button>
     <hr />
     <ion-list menuClose ion-item *ngFor="let service of services" (click)="linkService(service)">
       Link to {{ service.title }}
