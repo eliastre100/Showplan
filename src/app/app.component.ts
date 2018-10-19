@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import {AlertController, Nav, Platform} from 'ionic-angular';
+import { AlertController, Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
@@ -13,7 +13,7 @@ export class MyApp {
 
   rootPage: any = HomePage;
 
-  services: Array<{title: string}>;
+  services: Array<{ title: string }>;
 
 
   constructor(public platform: Platform,
